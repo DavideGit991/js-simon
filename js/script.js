@@ -19,19 +19,19 @@ $(document).ready(function()
      if (arrayNumPc.indexOf(n) == -1)
      {
       arrayNumPc.push(n);
-      $('.box-numpc').append('<h4>' + n + '</h4>');
+      $('.numbers').append('<h4>' + n + '</h4>');
      }
   }
 
   //gestisco la visualizzazione del box numeri da memorizzare
-  $("div .box-numpc").hide();
+  $(".numbers").hide();
   $(".visualizza").click(function()
   {
     $('.visualizza').hide();
-    $("div .box-numpc").show();
+    $(".numbers").show();
     setTimeout(function()
     {
-      $("div .box-numpc").hide();
+      $(".numbers").hide();
       $('.game').show();
     }, 5000);//li visualizzo per 5 sec
   });
@@ -69,7 +69,7 @@ $(document).ready(function()
       //stampo i numeri giusti e il punteggio
       //faccio sparire il tasto Game
       //faccio apparire i numeri del Pc e il tasto reset
-      $("div .box-numpc").show();
+      $(".numbers").show();
       $('.reset').show();
       $('.game').hide();
       $('.box-score').append(arrayNumeriTrovati.length);
