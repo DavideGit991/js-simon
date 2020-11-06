@@ -44,6 +44,7 @@ $(document).ready(function()
   //faccio aspettare n sec e poi faccio partire il resto
   $(".game").click(function()
   {
+    $('.game').hide();
     setTimeout(function()
     {
       alert('sono passati 4 sec puoi iniziare a darmi i tuoi numeri');
@@ -71,7 +72,7 @@ $(document).ready(function()
       //faccio apparire i numeri del Pc e il tasto reset
       $(".numbers").show();
       $('.reset').show();
-      $('.game').hide();
+
       $('.box-score').append(arrayNumeriTrovati.length);
       console.log('numeri trovati: ', arrayNumeriTrovati,'  il tuo punteggio è: ', arrayNumeriTrovati.length);
 
