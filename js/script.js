@@ -67,12 +67,16 @@ $(document).ready(function()
         arrayNumUte.push(n);
       }
       //stampo i numeri giusti e il punteggio
+      //faccio sparire il tasto Game
+      //faccio apparire i numeri del Pc e il tasto reset
       $("div .box-numpc").show();
+      $('.reset').show();
+      $('.game').hide();
       $('.box-score').append(arrayNumeriTrovati.length);
       console.log('numeri trovati: ', arrayNumeriTrovati,'  il tuo punteggio è: ', arrayNumeriTrovati.length);
 
-    });
-  }, 4000);//da cambiare in 30 sec
+    }, 4000);//da cambiare in 30 sec
+  });
 
 
   $('.reset').click(function()
