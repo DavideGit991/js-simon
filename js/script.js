@@ -12,23 +12,24 @@ $(document).ready(function()
   // nascondo il bottone dell'inizio gioco e del reset
   $('.game').hide();
   $('.reset').hide();
-  //genero 5 numeri diversi random tra 1 e 100 e li inserisco in un array
+  //genero 5 numeri diversi random tra 1 e 50 e li inserisco in un array
   while(arrayNumPc.length < 5)
   {
      var n = randomNum(50);
      if (arrayNumPc.indexOf(n) == -1)
      {
       arrayNumPc.push(n);
-      $('.numbers').append('<h4>' + n + '</h4>');
+      $('.numbers').append( '<h4>' + n + '</h4>');
+      $(".numbers").hide(); //li nascondo all'utente
      }
   }
 
   //gestisco la visualizzazione del box numeri da memorizzare
-  $(".numbers").hide();
+
   $(".visualizza").click(function()
   {
-    $('.visualizza').hide();
-    $(".numbers").show();
+    $('.visualizza').hide();//faccio sparire il bottone per visualizzare numeri Simons
+    $(".numbers").show(); // Visualizzo i numero di Symons
     setTimeout(function()
     {
       $(".numbers").hide();
@@ -52,9 +53,9 @@ $(document).ready(function()
       {
 
         //l'utente inserisce un numero
-        var n = parseInt(prompt('inserisci un numero da 1 a 100'));
+        var n = parseInt(prompt('inserisci un numero da 1 a 50'));
         //verifico che possa inserirlo con controlli e se presente nel mio arraynumPc
-        if(arrayNumUte.includes(n) || n > 50 || isNaN(n))
+        if(arrayNumUte.includes(n) || n > 50 || isNaN(n) || n === 0)
         {
           alert('ATTENZIONE numero non valido immetti un numero tra 1 e 50');
           i--;
@@ -63,6 +64,7 @@ $(document).ready(function()
         {
           //inseriscili nell'array trovati
           arrayNumeriTrovati.push(n)
+          console.log('numeri trovati: ', arrayNumeriTrovati,'  il tuo punteggio è: ', arrayNumeriTrovati.length);
           $('.box-numute').append('<h4>' + n + '</h4>');
         }
         arrayNumUte.push(n);
@@ -74,7 +76,7 @@ $(document).ready(function()
       $('.reset').show();
 
       $('.box-score').append(arrayNumeriTrovati.length);
-      console.log('numeri trovati: ', arrayNumeriTrovati,'  il tuo punteggio è: ', arrayNumeriTrovati.length);
+
 
     }, 4000);//da cambiare in 30 sec
   });
